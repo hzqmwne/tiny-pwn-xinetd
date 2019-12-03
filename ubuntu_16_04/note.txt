@@ -1,5 +1,8 @@
 
 libnss_nis and libnss_files must be added, or will error on "tcp not in /etc/protocol"
-(ldd doesn't list the to libraries, got it from strace xinetd)
+(ldd doesn't list the two libraries, got it from strace xinetd)
 /etc must has "x" permission for other users, or will error on "libwrap refused connection to {service}"
+
+FORCE_UNSAFE_CONFIGURE=1 for configure of coreutils because "you should not run configure as root (set FORCE_UNSAFE_CONFIGURE=1 in environment to bypass this check)"
+
 

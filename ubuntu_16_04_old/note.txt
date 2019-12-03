@@ -1,0 +1,5 @@
+
+libnss_nis and libnss_files must be added, or will error on "tcp not in /etc/protocol"
+(ldd doesn't list the to libraries, got it from strace xinetd)
+/etc must has "x" permission for other users, or will error on "libwrap refused connection to {service}"
+
