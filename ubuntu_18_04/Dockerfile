@@ -3,11 +3,11 @@ FROM ubuntu:18.04 as builder
 ARG PREFIXDIR=/root
 ARG ROOTDIR=$PREFIXDIR/rootdir
 
+RUN apt-get update && \
+	apt-get upgrade -y && \
+        apt-get install -y xinetd
+
 RUN cd $PREFIXDIR && \
-        apt-get update && \
-        apt-get install -y xinetd && \
-         \
-         \
         mkdir $ROOTDIR && \
         cd $ROOTDIR && \
          \
@@ -43,7 +43,7 @@ RUN cd $PREFIXDIR && \
         cp /bin/bash bin/ && \
         ln -s bash bin/sh && \
         cp /bin/cat bin/ && \
-        cp /bin/ls bin/ls && \
+        cp /bin/ls bin/ && \
         cp /usr/sbin/xinetd usr/sbin && \
         mkdir etc/xinetd.d && \
         cp /etc/xinetd.conf etc/ && \
